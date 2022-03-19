@@ -123,7 +123,7 @@ client.on('messageCreate', (message) => {
                     message.channel.send('Please tag someone when giving them IRL karma.');
                 } else {
                     user_id = taggedUser.id;
-                    var feedback = message.content.split(taggedUser.username)[1];
+                    var feedback = message.content.split(taggedUser.id)[1];
                     if (!peopleJson[user_id]) {
                         peopleJson[user_id] = {}
                     }
