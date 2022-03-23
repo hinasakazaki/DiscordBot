@@ -12,7 +12,7 @@ sudo apt-get install -y nodejs
 
 sudo npm install -g pm2
 
-
+$ pm2 delete all
 $ pm2 start bot.js
 $ pm2 startup
 $ pm2 save
