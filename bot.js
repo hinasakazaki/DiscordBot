@@ -100,12 +100,14 @@ client.on('messageCreate', (message) => {
                     embed.setThumbnail(taggedUser.displayAvatarURL());
                     embed.addField('Joined discord', `${taggedUser.createdAt}`, true);
                     var feedbacks = '';
-                    for (const pair of data[IRL_KARMA]) {
-                        feedbacks += pair['author'] + ': ' + pair['feedback'] + '\n';
+                    if (data[IRL_KARMA] && data[IRL_KARMA].length > 0) {
+                        for (const pair of data[IRL_KARMA]) {
+                            feedbacks += pair['author'] + ': ' + pair['feedback'] + '\n';
+                        }
+                        embed.setFooter({
+                            text: 'People who met them IRL say... \n' + feedbacks.slice(0, -1)
+                        });
                     }
-                    embed.setFooter({
-                        text: 'People who met them IRL say... \n' + feedbacks.slice(0, -1)
-                    });
                     message.channel.send({
                         embeds: [embed]
                     });
